@@ -11,6 +11,6 @@ class TestInherit < Test::Unit::TestCase
     assert_equal cc2.m1, "M1.m1", "如果子类中没有定义要调用的方法, 则调用include的模块中的方法"
 
     cc3 = CC3.new
-    assert_equal cc3.m1, "C1.m1", "如果子类中没有定义要调用的方法，且没有include模块，则继续调用父级对象中的方法"
+    assert_equal cc3.m1, "C1.m1", "如果子类中没有定义要调用的方法，且没有include模块，则继续调用父类中的方法"
   end
 end
