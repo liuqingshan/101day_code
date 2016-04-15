@@ -47,5 +47,3 @@ class EvalTest < MiniTest::Unit::TestCase
     assert_includes @e.singleton_methods(false), :in_stack?
   end
 end
-
-
