@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Canvas</title>
+    <style>
+      body {
+        background: #dddddd;
+      }
+
+      #canvas {
+        margin: 10px;
+        padding: 10px;
+        background: #fff;
+        border: thin inset #aaaaaa;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+         var canvas = document.getElementById("canvas");
+         var context = canvas.getContext("2d");
+
+         context.font = "30pt Arial";
+         context.fillStyle = "cornflowerblue";
+         context.strokeStyle = "blue";
+
+         context.fillText("Hello World", canvas.width/2 - 150, canvas.height/2 + 15);
+         context.strokeText("Hello World", canvas.width/2 - 150, canvas.height/2 + 15);
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="canvas" width="600" height="300">
+      Canvas not supported
+    </canvas>
+  </body>
+</html>
