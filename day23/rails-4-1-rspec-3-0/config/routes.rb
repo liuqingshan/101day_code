@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :books
 
   get 'login', to: 'sessions#new', as: 'login'
