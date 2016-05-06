@@ -32,10 +32,8 @@ class ProductionsController < ApplicationController
     respond_to do |format|
       if @production.save
         format.html { redirect_to @production, notice: 'Production was successfully created.' }
-        format.json { render :show, status: :created, location: @production }
       else
         format.html { render :new }
-        format.json { render json: @production.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,10 +45,8 @@ class ProductionsController < ApplicationController
       params[:production][:category_ids] ||= []
       if @production.update(production_params)
         format.html { redirect_to @production, notice: 'Production was successfully updated.' }
-        format.json { render :show, status: :ok, location: @production }
       else
         format.html { render :edit }
-        format.json { render json: @production.errors, status: :unprocessable_entity }
       end
     end
   end
