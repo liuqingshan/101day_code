@@ -39,5 +39,4 @@ class RemoteControlTest < Test::Unit::TestCase
     remote.on_button_was_pressed(2)
     remote.off_button_was_pressed(2)
   end
-
 end
