@@ -9,4 +9,8 @@ class LightOffCommand < Command
   def execute
     @light.off
   end
+
+  def undo
+    @light.on
+  end
 end

@@ -9,4 +9,9 @@ class GarageDoorOpenCommand < Command
     @door.light_on
     @door.up
   end
+
+  def undo
+    @door.light_off
+    @door.down
+  end
 end

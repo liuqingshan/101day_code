@@ -8,6 +8,7 @@ require_relative "command/garage_door_open_command"
 require_relative "command/garage_door_close_command"
 require_relative "command/stereo_on_with_cd_command"
 require_relative "command/stereo_off_with_cd_command"
+require_relative "command/micro_command"
 
 require_relative "light"
 require_relative "garage_door"
@@ -24,6 +25,9 @@ class RemoteControlTest < Test::Unit::TestCase
     remote.set_command(0, light_on, light_off)
     remote.on_button_was_pressed(0)
     remote.off_button_was_pressed(0)
+    print(remote)
+    remote.undo_button_was_pressed
+    print(remote)
 
     door = GarageDoor.new
     door_open = GarageDoorOpenCommand.new(door)
@@ -38,5 +42,16 @@ class RemoteControlTest < Test::Unit::TestCase
     remote.set_command(2, stereo_on, stereo_off)
     remote.on_button_was_pressed(2)
     remote.off_button_was_pressed(2)
+
+    micro_on = MicroCommand.new([light_on, door_open, stereo_on])
+    micro_off = MicroCommand.new([light_off, door_off, stereo_off])
+
+    remote.set_command(3, micro_on, micro_off)
+    print("\n=====================\n")
+    remote.on_button_was_pressed(3)
+    print("\n=====================\n")
+    remote.off_button_was_pressed(3)
+    print("\n=====================\n")
+    remote.undo_button_was_pressed
   end
 end
