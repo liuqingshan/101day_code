@@ -36,7 +36,7 @@ class RemoteControl
   def to_s
     str = ""
     @on_commands.each_with_index do |command, index|
-      str += "[slot #{index} #{command.class.name}  #{@off_commands[index].class.name}\n"
+      str << "[slot #{index} #{command.class.name}  #{@off_commands[index].class.name}\n"
     end
     str
   end
