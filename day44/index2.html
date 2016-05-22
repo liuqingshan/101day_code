@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script type="text/javascript" src="vue.js" ></script>
+</head>
+<body>
+<div id="app">
+  <h1 v-if="!message">You must send a message for help!</h1>
+  <h2 v-else>You have sent a message!</h2>
+  <textarea v-model="message"></textarea>
+  <button v-show="message">
+     Send word to alies for help!
+  </button>
+</div>
+<pre>
+  {{$data | json}}
+</pre>
+<script type="text/javascript">
+  new Vue({
+    el: "#app",
+    data: {
+       message: "Hello world!"
+    }
+  })
+</script>
+</body>
+</html>

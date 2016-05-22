@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link href="bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+  <story plot="haha"></story>
+  <story plot="gaga"></story>
+  <story plot="hehe"></story>
+  <story plot="xixi"></story>
+</div>
+<script type="text/javascript" src="vue.js" ></script>
+<script type="text/template" id="story-template">
+<h1>My horse is amazing! {{ plot }}</h1>
+</script>
+<script type="text/javascript">
+  Vue.component("story", {
+    props: ["plot"],
+    template: "#story-template"
+  });
+
+  new Vue({
+    el: ".container"
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link href="bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+  a= {{ a }}, b= {{ b }}
+  <input v-model="a" type="number">
+  <pre>
+    {{$data | json}}
+  </pre>
+</div>
+<script type="text/javascript" src="vue.js" ></script>
+<script type="text/javascript">
+  new Vue({
+    el: ".container",
+    data: {
+      a: 1
+    },
+    computed: {
+       b: function() {
+         return parseFloat(this.a) + 1;
+       }
+    }
+  })
+</script>
+</body>
+</html>

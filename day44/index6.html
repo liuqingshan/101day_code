@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link href="bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+  <h1>Let's hear some famous stories! ({{famous.length}})</h1>
+  <ul class="list-group">
+    <li class="list-group-item" v-for="story in famous">
+    {{ story.writer }} said "{{ story.plot }} and upvoted {{ story.upvotes }} times."
+    </li>
+  </ul>
+</div>
+<script type="text/javascript" src="vue.js" ></script>
+<script type="text/javascript">
+  new Vue({
+    el: ".container",
+    data: {
+      stories: [
+        {
+          plot: "I crashed my car today!",
+          writer: "alex",
+          upvotes: 28
+        },
+        {
+          plot: "Yesterday, someone stole my bag!",
+          writer: "John",
+          upvotes: 8
+        },
+        {
+         plot: "Someone ate my chocolate...",
+         writer: "John",
+         upvotes: 51
+        },
+        {
+         plot: "I ate someone's chocolate!",
+         writer: "Alex",
+         upvotes: 74
+        }
+      ]
+    },
+    computed: {
+       famous: function() {
+          return this.stories.filter(function(item) {
+             return item.upvotes > 25;
+          })
+       }
+    }
+  })
+</script>
+</body>
+</html>

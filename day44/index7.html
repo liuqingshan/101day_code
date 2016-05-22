@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link href="bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+  <h1>Let's hear some famous stories!</h1>
+  <h3>Alex's stories</h3>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <story v-for="story in stories | filterBy 'Alex' in 'writer'" :story="story" :favorite.sync="favorite"></story>
+    </li>
+  </ul>
+
+  <h3>John's stories</h3>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <story v-for="story in stories | filterBy 'John' in 'writer'" :story="story" :favorite.sync="favorite"></story>
+    </li>
+  </ul>
+
+  <h3>Search results:</h3>
+  <input v-model="query" placeholder="What are you looking for?" class="form-control">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <story v-for="story in stories | filterBy query in 'writer'" :story="story" :favorite.sync="favorite"></story>
+    </li>
+  </ul>
+</div>
+<script type="text/javascript" src="vue.js" ></script>
+<template id="story-template">
+  <li class="list-group-item">
+    {{ story.writer }} said "{{ story.plot }}"
+    Story upvotes {{ story.upvotes }}
+    <button v-show="!story.voted" @click="upvote" class="btn btn-default" >Upvote</button>
+    <button v-show="!is_favorite" @click="set_favorite" class="btn btn-default">Favorite</button>
+    <span v-show="is_favorite" class="glyphicon glyphicon-star pull-right" aria-hidden="true"></span>
+  </li>
+</template>
+<script type="text/javascript">
+
+  Vue.component("story", {
+    props: ["story", "favorite"],
+    template: "#story-template",
+    methods: {
+      upvote: function() {
+        this.story.upvotes +=1;
+        this.story.voted = true;
+      },
+      set_favorite: function() {
+         this.favorite = this.story;
+      }
+    },
+    computed: {
+      is_favorite: function() {
+         return this.story == this.favorite;
+      }
+    }
+  })
+
+  new Vue({
+    el: ".container",
+    data: {
+      query: "",
+      stories: [
+        {
+          plot: "I crashed my car today!",
+          writer: "alex",
+          upvotes: 28,
+          voted: false,
+        },
+        {
+          plot: "Yesterday, someone stole my bag!",
+          writer: "John",
+          upvotes: 8,
+          voted: false
+        },
+        {
+         plot: "Someone ate my chocolate...",
+         writer: "John",
+         upvotes: 51,
+         voted: false
+        },
+        {
+         plot: "I ate someone's chocolate!",
+         writer: "Alex",
+         upvotes: 74,
+         voted: false
+        }
+      ]
+    }
+  })
+</script>
+</body>
+</html>

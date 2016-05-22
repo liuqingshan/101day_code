@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link href="bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+  <h1>People of Vue</h1>
+  <input name="query" value="" placeholder="please input name for search" v-model="query" class="form-control" >
+  <ul class="list-group">
+    <li class="list-group-item" v-for="story in stories | orderBy 'upvotes' -1 | filterBy query in 'writer'">
+     {{story.writer}} {{story.upvotes }} <input type="button" @click.prevent="upvote(story)" value="Vote" class="btn btn-default"/>
+    </li>
+  </ul>
+  <h1>{{ winner }}</h1>
+</div>
+<script type="text/javascript" src="vue.js" ></script>
+<script type="text/javascript">
+  new Vue({
+    el: ".container",
+    data: {
+      query: "",
+      winner: "",
+      stories: [
+        {
+          plot: "I crashed my car today!",
+          writer: "Alex",
+          upvotes: 68
+        },
+        {
+          plot: "Yesterday, someone stole my bag!",
+          writer: "John",
+          upvotes: 69
+        },
+        {
+         plot: "Someone ate my chocolate...",
+         writer: "Jam",
+         upvotes: 70
+        },
+        {
+         plot: "I ate someone's chocolate!",
+         writer: "Joke",
+         upvotes: 74
+        }
+      ]
+    },
+    methods: {
+      upvote: function(story) {
+         story.upvotes++;
+      }
+    },
+    computed: {
+      winner: function() {
+        var winner = this.stories.sort(function(x, y) {
+            return x.upvotes <= y.upvotes;
+        })
+        return winner[0].writer;
+      }
+    }
+  })
+</script>
+</body>
+</html>
