@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+    body {
+      font-size: 16px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    body > div {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+    }
+
+    div.pct {
+      background: blue url(1.jpg);
+    }
+
+    div.ct {
+      border: 5px solid hsla(0, 0%, 100%, .5);
+      padding: 5px;
+      background: white;
+      background-clip: padding-box;
+    }
+
+    div.ct2 {
+      margin: 25px;
+      background: yellowgreen;
+      box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink;
+    }
+
+    div.ct3 {
+      background: url(1.jpg) no-repeat #58a;
+      border: 10px solid #655;
+      outline: 5px solid #222;
+    }
+
+    div.ct4 {
+      padding: 10px;
+      background: url(1.jpg) no-repeat #58a bottom right;
+      background-origin: content-box;
+    }
+
+    div.ct5 {
+      padding: 10px;
+      background: url(1.jpg) no-repeat #58a bottom right;
+      background-position: calc(100% - 10px) calc(100% - 10px);
+    }
+
+    div.ct6 {
+      background: tan;
+      border-radius: .8em;
+      padding: 1em;
+      box-shadow: 0 0 0 .6em #655;
+      outline: .6em solid #655;
+    }
+
+    div.ct7 {
+      //background: linear-gradient(45deg, #fb3 25%, #58a 0, #58a 50%, #fb3 0, #fb3 75%, #58a 0);
+      background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+    }
+
+    </style>
+</head>
+<body>
+  <div class="pct">
+    <div class="ct"> This is a div</div>
+  </div>
+
+  <div class="ct2"> This is a div</div>
+
+  <div class="ct3"> This is a div</div>
+
+  <div class="ct4"> This is a div</div>
+
+  <div class="ct5"> This is a div</div>
+
+  <div class="ct6"> This is a div</div>
+
+  <div class="ct7"> This is a div</div>
+</body>
+</html>
