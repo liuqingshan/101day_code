@@ -66,6 +66,42 @@
       background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
     }
 
+    div.ct8 {
+      background: linear-gradient(90deg, rgba(200, 0, 0, .5) 50%, transparent 0),
+                  linear-gradient(rgba(200, 0, 0, .5) 50%, transparent 0);
+      background-size: 30px 30px;
+    }
+
+    div.ct9 {
+      background: radial-gradient(tan 30%, transparent 0), radial-gradient(tan 30%, transparent 0);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+
+    div.ct10 {
+      background: #eee url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg"\
+             width="100" height="100"\
+             fill-opacity=".25">\
+             <rect x="50" width="50" height="50" />\
+             <rect x="50" width="50" height="50" />\
+         </svg>');
+      background-size: 30px 30px;
+    }
+
+    div.ct11 {
+       background: hsl(20, 40%, 90%);
+       background-image:
+         linear-gradient(90deg, #fb3 11px, transparent 0),
+         linear-gradient(90deg, #ab4 23px, transparent 0),
+         linear-gradient(90deg, #655 41px, transparent 0);
+       background-size: 41px 100%, 61px 100%, 83px 100%;
+    }
+
+    div.ct12 {
+       background-image: repeating-radial-gradient(#fb3, #fb3 5px, #f96 0, #f96 10px);
+       background-size: 20px;
+    }
     </style>
 </head>
 <body>
@@ -84,5 +120,15 @@
   <div class="ct6"> This is a div</div>
 
   <div class="ct7"> This is a div</div>
+
+  <div class="ct8"> This is a div</div>
+
+  <div class="ct9"> This is a div</div>
+
+  <div class="ct10"> This is a div</div>
+
+  <div class="ct11"> This is a div</div>
+
+  <div class="ct12"> This is a div</div>
 </body>
 </html>
