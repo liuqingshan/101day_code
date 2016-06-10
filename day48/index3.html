@@ -47,12 +47,20 @@
       transform: rotate(-45deg) scale(1.42);
     }
 
+    .ct4 > img {
+       max-width: 100%;
+       -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+
     </style>
 </head>
 <body>
   <div class="ct1"> This is a div</div>
   <div class="ct2"> This is a div</div>
   <div class="ct3">
+    <img src="1.jpg" alt="img"/>
+  </div>
+  <div class="ct4">
     <img src="1.jpg" alt="img"/>
   </div>
 </body>
